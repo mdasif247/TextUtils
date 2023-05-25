@@ -3,14 +3,9 @@ import './App.css';
 import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import Textarea from './components/Textarea';
-import About from './components/About.js';
+
 import React, { useState } from 'react'
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+
 function App() {
   const[mode,setmode]=useState('light');
   const[alert,setAlert]=useState(null);
@@ -43,16 +38,14 @@ function App() {
   }
   return (
     <>
-   <Router>
+   
    <Navbar title="TextUtils" about="About " mode={mode} togglemode={togglemode}/>
    <Alert alert={alert}/>
    <div className="container my-3">
-        <  Routes>
-          <Route path="/about" element={<About className="container my-3"/>}/>
-          <Route path="/" element={<Textarea heading="Enter the text below to analyze" showAlert={showAlert}/>}/>
-        </Routes>
+        <Textarea heading="Enter the text below to analyze" showAlert={showAlert}/>
+        
    </div>
-   </Router>
+
    </>
   );
 }
